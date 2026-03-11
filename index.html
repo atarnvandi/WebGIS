@@ -1239,44 +1239,45 @@
                 </div>
               </div>
               <!-- Attributes tab -->
-              <div id="tab-attributes" style="display:none; padding:16px; overflow-y:auto; flex:1;">
+              <div id="tab-attributes" style="display:none; flex-direction:column; overflow-y:auto; flex:1;">
+                <div style="padding:16px;">
 
-                <!-- Schema section -->
-                <div
-                  style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">
-                  Global Fields
-                </div>
-                <div id="schema-field-list" style="display:flex;flex-direction:column;gap:6px;margin-bottom:10px;">
-                </div>
-                <div style="display:flex;gap:6px;margin-bottom:16px;">
-                  <input id="new-field-name" type="text" placeholder="Field name..."
-                    style="flex:1;background:#111a16;border:1px solid var(--border);border-radius:var(--radius-sm);
-                    padding:8px 10px;color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:11px;outline:none;" />
-                  <select id="new-field-type"
-                    style="background:#111a16;border:1px solid var(--border);border-radius:var(--radius-sm);
-                    padding:8px 10px;color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:11px;outline:none;cursor:pointer;">
-                    <option value="text">Text</option>
-                    <option value="number">Number</option>
-                    <option value="date">Date</option>
-                  </select>
-                  <button onclick="addGlobalField()" style="padding:8px 12px;background:var(--accent);color:var(--bg-main);border:none;
-                    border-radius:var(--radius-sm);font-weight:700;font-size:11px;cursor:pointer;">+</button>
-                </div>
+                  <!-- Schema section -->
+                  <div
+                    style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">
+                    Global Fields</div>
+                  <div id="schema-field-list" style="display:flex;flex-direction:column;gap:6px;margin-bottom:10px;">
+                  </div>
+                  <div style="display:flex;gap:6px;margin-bottom:16px;">
+                    <input id="new-field-name" type="text" placeholder="Field name..."
+                      style="flex:1;background:#111a16;border:1px solid var(--border);border-radius:var(--radius-sm);
+        padding:8px 10px;color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:11px;outline:none;" />
+                    <select id="new-field-type"
+                      style="background:#111a16;border:1px solid var(--border);border-radius:var(--radius-sm);
+        padding:8px 10px;color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:11px;outline:none;cursor:pointer;">
+                      <option value="text">Text</option>
+                      <option value="number">Number</option>
+                      <option value="date">Date</option>
+                    </select>
+                    <button onclick="addGlobalField()" style="padding:8px 12px;background:var(--accent);color:var(--bg-main);border:none;
+        border-radius:var(--radius-sm);font-weight:700;font-size:11px;cursor:pointer;">+</button>
+                  </div>
 
-                <div style="height:1px;background:rgba(255,255,255,0.05);margin-bottom:16px;"></div>
+                  <div style="height:1px;background:rgba(255,255,255,0.05);margin-bottom:16px;"></div>
 
-                <!-- Feature section -->
-                <div
-                  style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;">
-                  <span>Feature Values</span>
-                  <div id="attr-edit-toggle" onclick="toggleAttrEdit()" style="display:none;font-size:10px;font-weight:700;cursor:pointer;padding:3px 8px;
-                    border-radius:20px;border:1px solid rgba(204,255,0,0.3);color:var(--accent);
-                    background:rgba(204,255,0,0.05);">Edit</div>
-                </div>
-                <div id="feature-attr-body">
-                  <div style="font-size:12px;color:var(--text-muted);font-style:italic;">No feature selected.</div>
-                </div>
+                  <!-- Feature section -->
+                  <div
+                    style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;">
+                    <span>Feature Values</span>
+                    <div id="attr-edit-toggle" onclick="toggleAttrEdit()" style="display:none;font-size:10px;font-weight:700;cursor:pointer;padding:3px 8px;
+                      border-radius:20px;border:1px solid rgba(204,255,0,0.3);color:var(--accent);
+                      background:rgba(204,255,0,0.05);">Edit</div>
+                  </div>
+                  <div id="feature-attr-body">
+                    <div style="font-size:12px;color:var(--text-muted);font-style:italic;">No feature selected.</div>
+                  </div>
 
+                </div>
               </div>
             </div>
           </div>
