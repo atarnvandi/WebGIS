@@ -829,8 +829,104 @@
       color: var(--danger);
     }
 
-    .select-popup-del:hover {
-      background: rgba(255, 59, 105, 0.3);
+    .attr-field-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .attr-field-tag {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-sm);
+      padding: 7px 10px;
+    }
+
+    .attr-field-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-primary);
+      flex: 1;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .attr-field-type {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .attr-field-del {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: rgba(255, 59, 105, 0.1);
+      border: 1px solid rgba(255, 59, 105, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--danger);
+    }
+
+    .attr-field-del:hover {
+      background: rgba(255, 59, 105, 0.25);
+    }
+
+    .attr-value-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    .attr-value-label {
+      font-size: 10px;
+      color: var(--text-secondary);
+    }
+
+    .attr-value-display {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      font-family: 'JetBrains Mono', monospace;
+      padding: 8px 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-sm);
+      min-height: 34px;
+    }
+
+    .attr-value-input {
+      width: 100%;
+      background: #111a16;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      color: var(--text-primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .attr-value-input:focus {
+      border-color: var(--accent);
+    }
+
+    .attr-warn {
+      font-size: 11px;
+      color: var(--danger);
+      margin-bottom: 8px;
+      padding: 8px 10px;
+      background: rgba(255, 59, 105, 0.08);
+      border: 1px solid rgba(255, 59, 105, 0.2);
+      border-radius: var(--radius-sm);
     }
   </style>
 </head>
@@ -949,11 +1045,12 @@
                 </svg>
               </div>
 
-              <!-- btn-move = PAN/MOVE (visual only, map always pannable) -->
-              <div class="mt-btn" id="btn-move" title="Move" style="width:28px;height:28px;">
+              <!-- btn-point = DRAW POINT -->
+              <div class="mt-btn" id="btn-point" title="Draw Point" style="width:28px;height:28px;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   style="width:13px;height:13px;">
-                  <path d="M5 9l-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3" />
+                  <circle cx="12" cy="12" r="3" fill="currentColor" />
+                  <circle cx="12" cy="12" r="7" />
                 </svg>
               </div>
 
@@ -1007,6 +1104,7 @@
                   <div class="ptab active" data-tab="measure">Measure</div>
                   <div class="ptab" data-tab="logs">Logs</div>
                   <div class="ptab" data-tab="layers">Layers</div>
+                  <div class="ptab" data-tab="attributes">Attributes</div>
                 </div>
               </div>
               <div class="fp-content" id="fp-content-wrap">
@@ -1139,6 +1237,46 @@
                     </div>
                   </div>
                 </div>
+              </div>
+              <!-- Attributes tab -->
+              <div id="tab-attributes" style="display:none; padding:16px; overflow-y:auto; flex:1;">
+
+                <!-- Schema section -->
+                <div
+                  style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">
+                  Global Fields
+                </div>
+                <div id="schema-field-list" style="display:flex;flex-direction:column;gap:6px;margin-bottom:10px;">
+                </div>
+                <div style="display:flex;gap:6px;margin-bottom:16px;">
+                  <input id="new-field-name" type="text" placeholder="Field name..."
+                    style="flex:1;background:#111a16;border:1px solid var(--border);border-radius:var(--radius-sm);
+                    padding:8px 10px;color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:11px;outline:none;" />
+                  <select id="new-field-type"
+                    style="background:#111a16;border:1px solid var(--border);border-radius:var(--radius-sm);
+                    padding:8px 10px;color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:11px;outline:none;cursor:pointer;">
+                    <option value="text">Text</option>
+                    <option value="number">Number</option>
+                    <option value="date">Date</option>
+                  </select>
+                  <button onclick="addGlobalField()" style="padding:8px 12px;background:var(--accent);color:var(--bg-main);border:none;
+                    border-radius:var(--radius-sm);font-weight:700;font-size:11px;cursor:pointer;">+</button>
+                </div>
+
+                <div style="height:1px;background:rgba(255,255,255,0.05);margin-bottom:16px;"></div>
+
+                <!-- Feature section -->
+                <div
+                  style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;">
+                  <span>Feature Values</span>
+                  <div id="attr-edit-toggle" onclick="toggleAttrEdit()" style="display:none;font-size:10px;font-weight:700;cursor:pointer;padding:3px 8px;
+                    border-radius:20px;border:1px solid rgba(204,255,0,0.3);color:var(--accent);
+                    background:rgba(204,255,0,0.05);">Edit</div>
+                </div>
+                <div id="feature-attr-body">
+                  <div style="font-size:12px;color:var(--text-muted);font-style:italic;">No feature selected.</div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -1278,6 +1416,8 @@
       document.getElementById('fp-content-wrap').style.display = tab === 'measure' ? 'block' : 'none';
       document.getElementById('tab-logs').style.display = tab === 'logs' ? 'block' : 'none';
       document.getElementById('tab-layers').style.display = tab === 'layers' ? 'block' : 'none';
+      document.getElementById('tab-attributes').style.display = tab === 'attributes' ? 'flex' : 'none';
+      if (tab === 'attributes') renderSchemaList();
     }
 
     function closePanel() { panelOpen = false; panel.style.display = 'none'; }
@@ -1324,9 +1464,10 @@
 
     function enterCursorMode() {
       cursorMode = true;
+      pointMode = false;
       map.getContainer().style.cursor = '';
       document.getElementById('btn-pan').classList.add('active');
-      document.getElementById('btn-move').classList.remove('active');
+      document.getElementById('btn-point').classList.remove('active');
       document.getElementById('btn-polygon').classList.remove('active');
       document.getElementById('btn-route').classList.remove('active');
     }
@@ -1339,9 +1480,9 @@
 
     function deselectPolygon() {
       if (selectedPolygon) { selectedPolygon.setStyle(polygonStyle); selectedPolygon = null; }
+      _selectedPoint = null;
       if (selectPopupEl) { selectPopupEl.remove(); selectPopupEl = null; }
     }
-
     function deleteSelected() {
       if (!selectedPolygon) return;
       map.removeLayer(selectedPolygon);
@@ -1360,6 +1501,16 @@
       el.style.top = point.y + 'px';
       el.innerHTML = `
         <span class="select-popup-id">${poly._gisId}</span>
+        <div class="select-popup-attr" id="popup-attr-btn" style="width:22px;height:22px;border-radius:50%;
+          background:rgba(204,255,0,0.1);border:1px solid rgba(204,255,0,0.3);
+          display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;color:var(--accent);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:11px;height:11px;">
+            <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
+            <line x1="8" y1="18" x2="21" y2="18"/>
+            <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/>
+            <line x1="3" y1="18" x2="3.01" y2="18"/>
+          </svg>
+        </div>
         <div class="select-popup-del" id="popup-del-btn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:11px;height:11px;">
             <polyline points="3 6 5 6 21 6"/>
@@ -1371,6 +1522,11 @@
       document.getElementById('leaflet-map').appendChild(el);
       selectPopupEl = el;
       el.querySelector('#popup-del-btn').addEventListener('click', e => { e.stopPropagation(); deleteSelected(); });
+      el.querySelector('#popup-attr-btn').addEventListener('click', e => {
+        e.stopPropagation();
+        openPanel('attributes');
+        renderAttributePanel(false); // read-only
+      });
     }
 
     function updatePopupPosition() {
@@ -1389,13 +1545,28 @@
       enterCursorMode();
     });
 
-    // btn-move click → just visual, map always pannable
-    document.getElementById('btn-move').addEventListener('click', () => {
+    let pointMode = false;
+    let allPoints = [];
+    let _selectedPoint = null;
+
+    function startPointMode() {
+      pointMode = true;
       exitCursorMode();
       cancelDrawing();
       cancelRouting(false);
-      document.getElementById('btn-move').classList.add('active');
+      document.getElementById('btn-point').classList.add('active');
+      map.getContainer().style.cursor = 'crosshair';
+    }
+
+    function cancelPointMode() {
+      pointMode = false;
+      document.getElementById('btn-point').classList.remove('active');
       map.getContainer().style.cursor = '';
+    }
+
+    document.getElementById('btn-point').addEventListener('click', () => {
+      if (pointMode) { cancelPointMode(); enterCursorMode(); return; }
+      startPointMode();
     });
 
     // ── Polygon Drawing ───────────────────────────────────────────
@@ -1429,19 +1600,19 @@
     }
 
     function finishPolygon() {
-      map.doubleClickZoom.enable();
+      map.doubleClickZoom.disable();
       if (drawVertices.length < 3) { cancelDrawing(); return; }
       const poly = L.polygon(drawVertices, polygonStyle).addTo(map);
       poly._gisId = 'ZN-' + String(polyIdCounter++).padStart(3, '0');
       attachPolyHandlers(poly);
       allPolygons.push(poly);
+      selectedPolygon = poly;
+      _selectedPoint = null;
+      openAttrOnCreate(poly);
       vertexMarkers.forEach(m => map.removeLayer(m));
       vertexMarkers = [];
       if (previewLine) { map.removeLayer(previewLine); previewLine = null; }
-      drawingMode = false;
       drawVertices = [];
-      document.getElementById('btn-polygon').classList.remove('active');
-      map.getContainer().style.cursor = '';
     }
 
     function addVertex(latlng) {
@@ -1463,6 +1634,23 @@
     map.on('click', function (e) {
       if (drawingMode) {
         addVertex(e.latlng);
+        return;
+      }
+      if (pointMode) {
+        const pt = L.marker(e.latlng, { icon: markerIcon }).addTo(map);
+        pt._gisId = 'PT-' + String(allPoints.length + 1).padStart(3, '0');
+        pt._attrs = {};
+        pt.on('click', function (e) {
+          if (!cursorMode) return;
+          L.DomEvent.stop(e);
+          deselectPolygon();
+          _selectedPoint = pt;
+          showSelectPopup(pt);
+        });
+        allPoints.push(pt);
+        _selectedPoint = pt;
+        selectedPolygon = null;
+        openAttrOnCreate(pt);
         return;
       }
       if (routingMode) {
@@ -1506,8 +1694,128 @@
       if (drawingMode) { cancelDrawing(); enterCursorMode(); return; }
       startDrawing();
     });
+    // ── Attributes ────────────────────────────────────────────────
+    let globalSchema = []; // [{ name, type }]
+    let attrEditMode = false;
 
-    // ── Routing ───────────────────────────────────────────────────
+    function addGlobalField() {
+      const nameEl = document.getElementById('new-field-name');
+      const typeEl = document.getElementById('new-field-type');
+      const name = nameEl.value.trim();
+      if (!name) return;
+      if (globalSchema.find(f => f.name === name)) { alert('Field already exists.'); return; }
+      globalSchema.push({ name, type: typeEl.value });
+      nameEl.value = '';
+      renderSchemaList();
+    }
+
+    function removeGlobalField(name) {
+      // check if any feature has a value for this field
+      const hasData = [...allPolygons, ...allPoints].some(f => f._attrs && f._attrs[name]);
+      if (hasData) {
+        const warn = document.getElementById('schema-warn');
+        if (warn) warn.remove();
+        const el = document.createElement('div');
+        el.className = 'attr-warn';
+        el.id = 'schema-warn';
+        el.innerHTML = `"${name}" has data in existing features. 
+      <span onclick="confirmRemoveField('${name}')" 
+        style="text-decoration:underline;cursor:pointer;font-weight:700;">Delete anyway</span>`;
+        document.getElementById('schema-field-list').after(el);
+        return;
+      }
+      confirmRemoveField(name);
+    }
+
+    function confirmRemoveField(name) {
+      const warn = document.getElementById('schema-warn');
+      if (warn) warn.remove();
+      globalSchema = globalSchema.filter(f => f.name !== name);
+      renderSchemaList();
+      if (selectedPolygon || selectedPoint()) renderAttributePanel(attrEditMode);
+    }
+
+    function selectedPoint() {
+      return null; // placeholder — extended below
+    }
+
+    function renderSchemaList() {
+      const el = document.getElementById('schema-field-list');
+      if (globalSchema.length === 0) {
+        el.innerHTML = `<div style="font-size:12px;color:var(--text-muted);font-style:italic;">No fields defined.</div>`;
+        return;
+      }
+      el.innerHTML = globalSchema.map(f => `
+    <div class="attr-field-row">
+      <div class="attr-field-tag">
+        <span class="attr-field-name">${f.name}</span>
+        <span class="attr-field-type">${f.type}</span>
+      </div>
+      <div class="attr-field-del" onclick="removeGlobalField('${f.name}')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:10px;height:10px;">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </div>
+    </div>`).join('');
+    }
+
+    function renderAttributePanel(editMode) {
+      attrEditMode = editMode;
+      const body = document.getElementById('feature-attr-body');
+      const toggle = document.getElementById('attr-edit-toggle');
+      const feature = selectedPolygon || _selectedPoint;
+
+      if (!feature) {
+        toggle.style.display = 'none';
+        body.innerHTML = `<div style="font-size:12px;color:var(--text-muted);font-style:italic;">No feature selected.</div>`;
+        return;
+      }
+
+      if (!feature._attrs) feature._attrs = {};
+      toggle.style.display = 'flex';
+      toggle.textContent = editMode ? 'Done' : 'Edit';
+      toggle.style.background = editMode ? 'rgba(204,255,0,0.15)' : 'rgba(204,255,0,0.05)';
+
+      if (globalSchema.length === 0) {
+        body.innerHTML = `<div style="font-size:12px;color:var(--text-muted);font-style:italic;">No fields defined. Add fields above.</div>`;
+        return;
+      }
+
+      body.innerHTML = globalSchema.map(f => {
+        const val = feature._attrs[f.name] || '';
+        if (editMode) {
+          const inputType = f.type === 'date' ? 'date' : f.type === 'number' ? 'number' : 'text';
+          return `<div class="attr-value-row">
+        <div class="attr-value-label">${f.name} <span style="color:var(--text-muted)">(${f.type})</span></div>
+        <input class="attr-value-input" type="${inputType}" value="${val}"
+          oninput="saveAttrValue('${f.name}', this.value)" />
+      </div>`;
+        } else {
+          return `<div class="attr-value-row">
+        <div class="attr-value-label">${f.name} <span style="color:var(--text-muted)">(${f.type})</span></div>
+        <div class="attr-value-display">${val || '—'}</div>
+      </div>`;
+        }
+      }).join('');
+    }
+
+    function saveAttrValue(fieldName, value) {
+      const feature = selectedPolygon || _selectedPoint;
+      if (!feature) return;
+      if (!feature._attrs) feature._attrs = {};
+      feature._attrs[fieldName] = value;
+    }
+
+    function toggleAttrEdit() {
+      renderAttributePanel(!attrEditMode);
+    }
+
+    // open attributes panel after feature created
+    function openAttrOnCreate(feature) {
+      openPanel('attributes');
+      renderSchemaList();
+      renderAttributePanel(true); // edit mode on create
+    }
     let routePoints = [];
     let routeMarkers = [];
     let routeLayer = null;
