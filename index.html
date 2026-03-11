@@ -1207,209 +1207,210 @@
                   <button class="btn-calc">Calculate Properties</button>
                   <div class="results-grid">
                     <div class="result-box">
-                      <div class="rb-label">Calculated Area</div>
-                      <div class="rb-val">83.0 <span style="font-size:11px;color:var(--text-secondary)">ha</span></div>
+                      <div class="rb-label" id="rb-label-1">Calculated Area</div>
+                      <div class="rb-val" id="rb-val-1">83.0 <span
+                          style="font-size:11px;color:var(--text-secondary)">ha</span></div>
                     </div>
                     <div class="result-box">
-                      <div class="rb-label">Perimeter Distance</div>
-                      <div class="rb-val">4.1 <span style="font-size:11px;color:var(--text-secondary)">km</span></div>
+                      <div class="rb-label" id="rb-label-2">Perimeter Distance</div>
+                      <div class="rb-val" id="rb-val-2">4.1 <span
+                          style="font-size:11px;color:var(--text-secondary)">km</span></div>
                     </div>
                   </div>
                 </div>
-                <div id="tab-logs" class="tab-pane" style="display:none;">
-                  <div
-                    style="font-size:11px;color:var(--text-secondary);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)">
-                    Today, Oct 12</div>
-                  <div class="event-list">
-                    <div class="event-item">
-                      <div class="ev-time">14:32</div>
-                      <div class="ev-indicator">
-                        <div class="ev-dot green" style="margin-left:auto"></div>
-                      </div>
-                      <div class="ev-content">
-                        <div class="ev-title">Polygon Created</div>
-                        <div class="ev-stats"><span>User: admin</span><span>ID: ZN-042</span></div>
-                      </div>
+              </div>
+              <div id="tab-logs" class="tab-pane" style="display:none;">
+                <div
+                  style="font-size:11px;color:var(--text-secondary);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)">
+                  Today, Oct 12</div>
+                <div class="event-list">
+                  <div class="event-item">
+                    <div class="ev-time">14:32</div>
+                    <div class="ev-indicator">
+                      <div class="ev-dot green" style="margin-left:auto"></div>
                     </div>
-                    <div class="event-item">
-                      <div class="ev-time">11:05</div>
-                      <div class="ev-indicator">
-                        <div class="ev-dot red" style="margin-left:auto"></div>
-                      </div>
-                      <div class="ev-content">
-                        <div class="ev-title">Layer Sync Failed</div>
-                        <div class="ev-stats"><span>Source: WMS</span><span>Err: Timeout</span></div>
-                      </div>
+                    <div class="ev-content">
+                      <div class="ev-title">Polygon Created</div>
+                      <div class="ev-stats"><span>User: admin</span><span>ID: ZN-042</span></div>
                     </div>
-                    <div class="event-item">
-                      <div class="ev-time">09:12</div>
-                      <div class="ev-indicator">
-                        <div class="ev-dot green" style="margin-left:auto"></div>
-                      </div>
-                      <div class="ev-content">
-                        <div class="ev-title">Attributes Updated</div>
-                        <div class="ev-stats"><span>Parcels.shp</span><span>4 records</span></div>
-                      </div>
+                  </div>
+                  <div class="event-item">
+                    <div class="ev-time">11:05</div>
+                    <div class="ev-indicator">
+                      <div class="ev-dot red" style="margin-left:auto"></div>
                     </div>
-                    <div class="event-item">
-                      <div class="ev-time">08:00</div>
-                      <div class="ev-indicator">
-                        <div class="ev-dot grey" style="margin-left:auto"></div>
-                      </div>
-                      <div class="ev-content">
-                        <div class="ev-title">Session Started</div>
-                        <div class="ev-stats"><span>IP: 192.168.1.5</span></div>
-                      </div>
+                    <div class="ev-content">
+                      <div class="ev-title">Layer Sync Failed</div>
+                      <div class="ev-stats"><span>Source: WMS</span><span>Err: Timeout</span></div>
+                    </div>
+                  </div>
+                  <div class="event-item">
+                    <div class="ev-time">09:12</div>
+                    <div class="ev-indicator">
+                      <div class="ev-dot green" style="margin-left:auto"></div>
+                    </div>
+                    <div class="ev-content">
+                      <div class="ev-title">Attributes Updated</div>
+                      <div class="ev-stats"><span>Parcels.shp</span><span>4 records</span></div>
+                    </div>
+                  </div>
+                  <div class="event-item">
+                    <div class="ev-time">08:00</div>
+                    <div class="ev-indicator">
+                      <div class="ev-dot grey" style="margin-left:auto"></div>
+                    </div>
+                    <div class="ev-content">
+                      <div class="ev-title">Session Started</div>
+                      <div class="ev-stats"><span>IP: 192.168.1.5</span></div>
                     </div>
                   </div>
                 </div>
-                <div id="tab-layers" class="tab-pane" style="display:none;">
-                  <div class="market-list">
-                    <div class="market-item">
-                      <div class="mi-left">
-                        <div class="mi-icon" style="background:#ccff00">R</div>
-                        <div class="mi-name">Road Network</div>
-                      </div>
-                      <div class="mi-right">
-                        <div class="mi-val">Vector</div>
-                        <div class="mi-change" style="color:var(--success)">Loaded</div>
-                      </div>
+              </div>
+              <div id="tab-layers" class="tab-pane" style="display:none;">
+                <div class="market-list">
+                  <div class="market-item">
+                    <div class="mi-left">
+                      <div class="mi-icon" style="background:#ccff00">R</div>
+                      <div class="mi-name">Road Network</div>
                     </div>
-                    <div class="market-item">
-                      <div class="mi-left">
-                        <div class="mi-icon" style="background:#4a9eff">W</div>
-                        <div class="mi-name">Water Bodies</div>
-                      </div>
-                      <div class="mi-right">
-                        <div class="mi-val">GeoJSON</div>
-                        <div class="mi-change" style="color:var(--success)">Loaded</div>
-                      </div>
+                    <div class="mi-right">
+                      <div class="mi-val">Vector</div>
+                      <div class="mi-change" style="color:var(--success)">Loaded</div>
                     </div>
-                    <div class="market-item">
-                      <div class="mi-left">
-                        <div class="mi-icon" style="background:#c04aff;color:#fff">Z</div>
-                        <div class="mi-name">Industrial Zones</div>
-                      </div>
-                      <div class="mi-right">
-                        <div class="mi-val">Polygon Area</div>
-                        <div class="mi-change" style="color:var(--success)">Active</div>
-                      </div>
+                  </div>
+                  <div class="market-item">
+                    <div class="mi-left">
+                      <div class="mi-icon" style="background:#4a9eff">W</div>
+                      <div class="mi-name">Water Bodies</div>
                     </div>
-                    <div class="market-item">
-                      <div class="mi-left">
-                        <div class="mi-icon"
-                          style="background:var(--bg-header);border:1px solid var(--border);color:var(--text-secondary)">
-                          I</div>
-                        <div class="mi-name">Sentinel-2 Imagery</div>
-                      </div>
-                      <div class="mi-right">
-                        <div class="mi-val" style="color:var(--text-secondary)">Raster WMS</div>
-                        <div class="mi-change" style="color:var(--danger)">Offline</div>
-                      </div>
+                    <div class="mi-right">
+                      <div class="mi-val">GeoJSON</div>
+                      <div class="mi-change" style="color:var(--success)">Loaded</div>
+                    </div>
+                  </div>
+                  <div class="market-item">
+                    <div class="mi-left">
+                      <div class="mi-icon" style="background:#c04aff;color:#fff">Z</div>
+                      <div class="mi-name">Industrial Zones</div>
+                    </div>
+                    <div class="mi-right">
+                      <div class="mi-val">Polygon Area</div>
+                      <div class="mi-change" style="color:var(--success)">Active</div>
+                    </div>
+                  </div>
+                  <div class="market-item">
+                    <div class="mi-left">
+                      <div class="mi-icon"
+                        style="background:var(--bg-header);border:1px solid var(--border);color:var(--text-secondary)">
+                        I</div>
+                      <div class="mi-name">Sentinel-2 Imagery</div>
+                    </div>
+                    <div class="mi-right">
+                      <div class="mi-val" style="color:var(--text-secondary)">Raster WMS</div>
+                      <div class="mi-change" style="color:var(--danger)">Offline</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Scale pill -->
-            <div
-              style="background:rgba(18,27,24,0.88); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:8px 14px; display:flex; align-items:center; gap:8px;">
-              <span style="font-size:11px; color:var(--text-secondary);">Scale</span>
-              <span
-                style="font-size:12px; font-weight:700; color:var(--text-primary); font-family:'JetBrains Mono',monospace;"
-                id="zoom-display">1:50,000</span>
-            </div>
-
           </div>
 
-          <!-- Right: search + notif + export -->
-          <div style="display:flex; align-items:center; gap:10px;">
-            <div class="search-bar" style="width:220px;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                style="width:14px;height:14px;color:var(--text-secondary);">
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
-              <input type="text" placeholder="Search feature ID or coordinates..." />
-            </div>
-            <div class="icon-btn" style="background:rgba(18,27,24,0.88); backdrop-filter:blur(14px);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                style="width:16px;height:16px;">
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-              </svg>
-              <div class="badge"></div>
-            </div>
-            <button class="btn-accent">
-              Export Map
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-            </button>
+          <!-- Scale pill -->
+          <div
+            style="background:rgba(18,27,24,0.88); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:8px 14px; display:flex; align-items:center; gap:8px;">
+            <span style="font-size:11px; color:var(--text-secondary);">Scale</span>
+            <span
+              style="font-size:12px; font-weight:700; color:var(--text-primary); font-family:'JetBrains Mono',monospace;"
+              id="zoom-display">1:50,000</span>
           </div>
+
         </div>
-        <!-- BOTTOM BAR overlay -->
-        <div
-          style="position:absolute; bottom:16px; left:16px; right:16px; z-index:110; display:flex; align-items:flex-end; justify-content:space-between; gap:12px;">
 
-          <!-- Bottom-left: stats -->
-          <div style="display:flex; gap:10px;">
-            <div
-              style="background:rgba(18,27,24,0.9); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:10px 16px;">
-              <div
-                style="font-size:11px; color:var(--text-secondary); margin-bottom:3px; display:flex; align-items:center; gap:6px;">
-                Mapped Area <span style="font-size:10px; font-weight:600; color:var(--success);">↑ 12%</span></div>
-              <div style="font-size:17px; font-weight:700; color:var(--text-primary);">147.3 km²</div>
-            </div>
-            <div
-              style="background:rgba(18,27,24,0.9); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:10px 16px;">
-              <div
-                style="font-size:11px; color:var(--text-secondary); margin-bottom:3px; display:flex; align-items:center; gap:6px;">
-                Features <span style="font-size:10px; font-weight:600; color:var(--danger);">↓ 4</span></div>
-              <div style="font-size:17px; font-weight:700; color:var(--text-primary);">1,284</div>
-            </div>
-          </div>
-
-          <!-- Bottom-right: panel popup + basemap bar -->
-          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
-
-            <!-- Panel dropdown -->
-            <!-- Basemap switcher only -->
-            <div
-              style="background:rgba(18,27,24,0.9); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:6px 10px; display:flex; align-items:center; gap:6px;">
-              <button class="glass-btn" id="tile-street" onclick="switchTile('street')"
-                style="padding:4px 10px; font-size:11px; height:28px;">Street</button>
-              <button class="glass-btn" id="tile-satellite" onclick="switchTile('satellite')"
-                style="padding:4px 10px; font-size:11px; height:28px;">Satellite</button>
-              <button class="glass-btn active" id="tile-dark" onclick="switchTile('dark')"
-                style="padding:4px 10px; font-size:11px; height:28px;">Dark</button>
-            </div>
-
-          </div>
-        </div>
-        <!-- Route status toast -->
-        <div id="route-toast" style="display:none; position:absolute; top:70px; left:50%; transform:translateX(-50%); z-index:120;
-          background:rgba(18,27,24,0.92); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.08);
-          border-radius:40px; padding:10px 20px; display:none; align-items:center; gap:10px; white-space:nowrap;
-          box-shadow:0 4px 20px rgba(0,0,0,0.4);">
-          <div id="route-toast-dot" style="width:8px;height:8px;border-radius:50%;background:var(--accent);
-            box-shadow:0 0 8px var(--accent); flex-shrink:0;"></div>
-          <span id="route-toast-text" style="font-size:12px;font-weight:600;color:var(--text-primary);">Click to set
-            origin</span>
-          <div id="route-toast-close" style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.08);
-            display:flex;align-items:center;justify-content:center;cursor:pointer;margin-left:4px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              style="width:10px;height:10px;">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
+        <!-- Right: search + notif + export -->
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div class="search-bar" style="width:220px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              style="width:14px;height:14px;color:var(--text-secondary);">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
+            <input type="text" placeholder="Search feature ID or coordinates..." />
           </div>
+          <div class="icon-btn" style="background:rgba(18,27,24,0.88); backdrop-filter:blur(14px);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <div class="badge"></div>
+          </div>
+          <button class="btn-accent">
+            Export Map
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </button>
         </div>
       </div>
+      <!-- BOTTOM BAR overlay -->
+      <div
+        style="position:absolute; bottom:35px; left:35px; right:35px; z-index:110; display:flex; align-items:flex-end; justify-content:space-between; gap:12px;">
+
+        <!-- Bottom-left: stats -->
+        <div style="display:flex; gap:10px;">
+          <div
+            style="background:rgba(18,27,24,0.9); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:10px 16px;">
+            <div
+              style="font-size:11px; color:var(--text-secondary); margin-bottom:3px; display:flex; align-items:center; gap:6px;">
+              Mapped Area <span style="font-size:10px; font-weight:600; color:var(--success);">↑ 12%</span></div>
+            <div style="font-size:17px; font-weight:700; color:var(--text-primary);">147.3 km²</div>
+          </div>
+          <div
+            style="background:rgba(18,27,24,0.9); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:10px 16px;">
+            <div
+              style="font-size:11px; color:var(--text-secondary); margin-bottom:3px; display:flex; align-items:center; gap:6px;">
+              Features <span style="font-size:10px; font-weight:600; color:var(--danger);">↓ 4</span></div>
+            <div style="font-size:17px; font-weight:700; color:var(--text-primary);">1,284</div>
+          </div>
+        </div>
+
+        <!-- Bottom-right: panel popup + basemap bar -->
+        <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+
+          <!-- Panel dropdown -->
+          <!-- Basemap switcher only -->
+          <div
+            style="background:rgba(18,27,24,0.9); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:6px 10px; display:flex; align-items:center; gap:6px;">
+            <button class="glass-btn" id="tile-street" onclick="switchTile('street')"
+              style="padding:4px 10px; font-size:11px; height:28px;">Street</button>
+            <button class="glass-btn" id="tile-satellite" onclick="switchTile('satellite')"
+              style="padding:4px 10px; font-size:11px; height:28px;">Satellite</button>
+            <button class="glass-btn active" id="tile-dark" onclick="switchTile('dark')"
+              style="padding:4px 10px; font-size:11px; height:28px;">Dark</button>
+          </div>
+
+        </div>
+      </div>
+      <!-- Route status toast -->
+      <div id="route-toast" style="display:none; position:absolute; top:70px; left:50%; transform:translateX(-50%); z-index:120;
+          background:rgba(18,27,24,0.92); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.08);
+          border-radius:40px; padding:10px 20px; align-items:center; gap:10px; white-space:nowrap;
+          box-shadow:0 4px 20px rgba(0,0,0,0.4);">
+        <div id="route-toast-dot" style="width:8px;height:8px;border-radius:50%;background:var(--accent);
+            box-shadow:0 0 8px var(--accent); flex-shrink:0;"></div>
+        <span id="route-toast-text" style="font-size:12px;font-weight:600;color:var(--text-primary);">Click to set
+          origin</span>
+        <div id="route-toast-close" style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.08);
+            display:flex;align-items:center;justify-content:center;cursor:pointer;margin-left:4px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:10px;height:10px;">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </div>
+      </div>
+  </div>
   </div>
 
   </div>
@@ -1457,6 +1458,42 @@
       document.getElementById('tile-' + name).classList.add('active');
     }
 
+    // ── Panel ─────────────────────────────────────────────────────
+    const panel = document.getElementById('floating-panel');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    const innerTabs = document.querySelectorAll('.ptab');
+    let panelOpen = false;
+    let activeTab = 'measure';
+
+    function openPanel(tab) {
+      panelOpen = true;
+      activeTab = tab;
+      panel.style.display = 'flex';
+      innerTabs.forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+      tabPanes.forEach(p => { p.style.display = p.id === 'tab-' + tab ? 'block' : 'none'; });
+    }
+
+    function closePanel() {
+      panelOpen = false;
+      panel.style.display = 'none';
+    }
+
+    document.querySelectorAll('.panel-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (panelOpen && activeTab === btn.dataset.tab) {
+          closePanel();
+        } else {
+          openPanel(btn.dataset.tab);
+        }
+      });
+    });
+
+    innerTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        openPanel(tab.dataset.tab);
+      });
+    });
+
     // ── Routing ───────────────────────────────────────────────────
     let routePoints = [];
     let routeMarkers = [];
@@ -1480,19 +1517,19 @@
       toast.style.display = 'none';
     }
 
-    function cancelRouting() {
+    function cancelRouting(clearRoute = false) {
       routingMode = false;
       routePoints = [];
       routeMarkers.forEach(m => map.removeLayer(m));
       routeMarkers = [];
-      if (routeLayer) { map.removeLayer(routeLayer); routeLayer = null; }
+      if (clearRoute && routeLayer) { map.removeLayer(routeLayer); routeLayer = null; }
       document.getElementById('btn-route').classList.remove('active');
       map.getContainer().style.cursor = '';
     }
 
     document.getElementById('route-toast-close').addEventListener('click', () => {
       hideToast();
-      cancelRouting();
+      cancelRouting(true);
     });
 
     function makeLabel(latlng, label, color) {
@@ -1544,8 +1581,6 @@
           }
         );
         const data = await response.json();
-
-        console.log('ORS raw response:', data);
         if (!data.routes || !data.routes[0]) {
           showToast('No route found', 'var(--danger)');
           setTimeout(hideToast, 2000);
@@ -1562,17 +1597,15 @@
         const distanceKm = (summary.distance / 1000).toFixed(2);
         const minutes = Math.round(summary.duration / 60);
 
-        const boxes = document.querySelectorAll('.rb-val');
-        if (boxes[0]) boxes[0].innerHTML = distanceKm + ' <span style="font-size:11px;color:var(--text-secondary)">km</span>';
-        if (boxes[1]) boxes[1].innerHTML = minutes + ' <span style="font-size:11px;color:var(--text-secondary)">min</span>';
+        document.getElementById('rb-label-1').textContent = 'Distance';
+        document.getElementById('rb-val-1').innerHTML = distanceKm + ' <span style="font-size:11px;color:var(--text-secondary)">km</span>';
+        document.getElementById('rb-label-2').textContent = 'Travel Time';
+        document.getElementById('rb-val-2').innerHTML = minutes + ' <span style="font-size:11px;color:var(--text-secondary)">min</span>';
 
-        panel.style.display = 'flex';
-        activeTab = 'measure';
-        innerTabs.forEach(t => t.classList.toggle('active', t.dataset.tab === 'measure'));
-        tabPanes.forEach(p => { p.style.display = p.id === 'tab-measure' ? 'block' : 'none'; });
+        // Open panel WITHOUT touching activeTab toggle logic
+        openPanel('measure');
 
         showToast(`${distanceKm} km · ${minutes} min`, 'var(--success)');
-        setTimeout(hideToast, 3000);
         map.getContainer().style.cursor = '';
 
       } catch (err) {
@@ -1585,7 +1618,6 @@
     map.on('click', function (e) {
       if (!routingMode) return;
       routePoints.push(e.latlng);
-
       if (routePoints.length === 1) {
         routeMarkers.push(makeLabel(e.latlng, 'Origin', '#00e676'));
         showToast('Now click to set destination', '#4a9eff');
@@ -1601,50 +1633,15 @@
     document.getElementById('btn-route').addEventListener('click', (e) => {
       e.stopPropagation();
       if (routingMode) {
-        cancelRouting();
+        cancelRouting(true);
         hideToast();
         return;
       }
-      cancelRouting();
+      cancelRouting(false);
       routingMode = true;
       document.getElementById('btn-route').classList.add('active');
       map.getContainer().style.cursor = 'crosshair';
       showToast('Click to set origin', 'var(--accent)');
-    });
-
-    // ── Panel triggers ────────────────────────────────────────────
-    const panel = document.getElementById('floating-panel');
-    const tabPanes = document.querySelectorAll('.tab-pane');
-    const innerTabs = document.querySelectorAll('.ptab');
-    let activeTab = null;
-
-    document.querySelectorAll('.panel-trigger').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const tab = btn.dataset.tab;
-        if (activeTab === tab) {
-          panel.style.display = 'none';
-          btn.classList.remove('active');
-          activeTab = null;
-          return;
-        }
-        document.querySelectorAll('.panel-trigger').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeTab = tab;
-        panel.style.display = 'flex';
-        innerTabs.forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
-        tabPanes.forEach(p => { p.style.display = p.id === 'tab-' + tab ? 'block' : 'none'; });
-      });
-    });
-
-    innerTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const t = tab.dataset.tab;
-        innerTabs.forEach(x => x.classList.remove('active'));
-        tab.classList.add('active');
-        document.querySelectorAll('.panel-trigger').forEach(b => b.classList.toggle('active', b.dataset.tab === t));
-        activeTab = t;
-        tabPanes.forEach(p => { p.style.display = p.id === 'tab-' + t ? 'block' : 'none'; });
-      });
     });
   </script>
 </body>
